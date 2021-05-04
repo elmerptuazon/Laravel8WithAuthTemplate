@@ -19,13 +19,15 @@ class PostSeeder extends Seeder
                 'id'=>'0ed43t5c-1232-22eb-b55f-1c1badsfe211',
                 'title' => 'test1',
                 'content' => 'test content',
-                'author' => 'test'
+                'author' => 'test',
+                'user_id'=>1
             ],
             [
                 'id'=>'0ed43t5c-1232-22eb-b55f-1c1badsfe212',
                 'title' => 'test2',
                 'content' => 'test content',
-                'author' => 'test'
+                'author' => 'test',
+                'user_id'=>1
             ],
         ]);
     }

@@ -43,6 +43,7 @@ class PostController extends Controller
     public function store(PostRequest $request): JsonResponse
     {
         $details = $request->validated();
+        $details["user_id"] = $request->user()->id;
         $details["author"] = strtolower($request->user()->name);
         $createRecord = $this->postRepository->create($details);
 
@@ -96,7 +97,7 @@ class PostController extends Controller
      */
     public function myposts(Request $request): JsonResponse
     {
-        $records = $this->postRepository->getMyPosts($request->user()->name);
+        $records = $this->postRepository->getMyPosts($request->user()->id);
 
         return $this->responseService->successResponse($records->toArray(), SuccessMessages::success);
     }

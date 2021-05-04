@@ -27,6 +27,7 @@ class Post extends Model
         "title",
         "content",
         "author",
+        "user_id",
     ];
 
     public function comments()
