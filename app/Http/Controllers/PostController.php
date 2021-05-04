@@ -88,4 +88,16 @@ class PostController extends Controller
 
         return $this->responseService->successResponse(null, SuccessMessages::recordDeleted);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     *@return JsonResponse
+     */
+    public function myposts(Request $request): JsonResponse
+    {
+        $records = $this->postRepository->getMyPosts($request->user()->name);
+
+        return $this->responseService->successResponse($records->toArray(), SuccessMessages::success);
+    }
 }

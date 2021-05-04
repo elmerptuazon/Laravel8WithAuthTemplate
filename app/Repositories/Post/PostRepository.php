@@ -12,4 +12,9 @@ class PostRepository extends Repository implements IPostRepository
         parent::__construct($model);
     }
 
+    public function getMyPosts(string $author)
+    {
+        return $this->model->where('author', '=', $author)->get();
+    }
+
 }

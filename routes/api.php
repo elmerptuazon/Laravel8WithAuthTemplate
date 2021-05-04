@@ -32,6 +32,10 @@ Route::middleware('auth:sanctum')->group(function (){
         Route::post('/login', [AuthController::class, 'login']);
     });
 
+    Route::prefix('/me')->group(function (){
+        Route::get('/posts', [PostController::class, 'myposts']);
+    });
+
     Route::apiResources([
         'posts' => PostController::class,
     ]);
