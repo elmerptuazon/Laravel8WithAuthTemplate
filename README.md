@@ -21,3 +21,13 @@
 - Model Trait Modification
 - Payload Encryption
 - Const Values using Enums
+
+## Entiry Diagram Link
+ - https://dbdiagram.io/d/6090d51cb29a09603d133d9f
+
+## Postman Navigation Instruction
+ - https://drive.google.com/file/d/1VOk-bV30brZ0pvQujoVTpbOX01iXZi7f/view?usp=sharing
+ - If encountered authenticated please use the 2 Client Token Login Request. It is automatically changing the values of the variable inside so just click Send button. Please refer video shared.
+
+ ## Exported Postman Collection 
+ - https://drive.google.com/file/d/1nnZktYfh7sPk9WY7J_rlDqccUr8VXiNW/view?usp=sharing
