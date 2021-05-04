@@ -13,6 +13,7 @@ class SuccessMessages
 
     const postCreated = 'Post created!';
     const postUpdated = 'Post updated!';
+    const commentCreated = 'Comment created!';
     const recordSaved = 'Record has been saved.';
     const recordDeleted = 'Record has been deleted';
 
