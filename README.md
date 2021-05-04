@@ -30,4 +30,5 @@
  - If encountered authenticated please use the 2 Client Token Login Request. It is automatically changing the values of the variable inside so just click Send button. Please refer video shared.
 
  ## Exported Postman Collection 
+ - Please download the exported postman json collection below.
  - https://drive.google.com/file/d/1nnZktYfh7sPk9WY7J_rlDqccUr8VXiNW/view?usp=sharing
