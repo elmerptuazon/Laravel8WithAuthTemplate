@@ -37,8 +37,37 @@ Route::middleware('auth:sanctum')->group(function (){
         Route::get('/posts', [PostController::class, 'myposts']);
     });
 
-    Route::apiResources([
-        'posts' => PostController::class,
-        'posts.comments' => CommentController::class,
-    ]);
+    // Route::group(['middleware' => 'owner.only'], function () {
+    //     Route::apiResources([
+    //         'posts' => PostController::class,
+    //     ]);
+    // });
+
+    // Route::apiResources([
+    //     'posts' => PostController::class,
+    //     'posts.comments' => CommentController::class,
+    // ])->except(['delete']);
+
+    Route::prefix('/posts')->group(function () {
+        Route::post('/', [PostController::class, 'store']);
+        Route::put('/{post}', [PostController::class, 'update']);
+        Route::delete('/{post}', [PostController::class, 'destroy'])->middleware('owner.only');
+
+        Route::prefix('/{post}/comments')->group(function () {
+            Route::get('/', [CommentController::class, 'index']);
+            Route::post('/', [CommentController::class, 'store']);
+            Route::delete('/{comment}', [CommentController::class, 'destroy'])->middleware(['comment.owner']);
+        });
+    });
+    
+});
+
+//public
+Route::prefix('/posts')->group(function () {
+    Route::get('/', [PostController::class, 'index']);
+    Route::get('/{post}', [PostController::class, 'show']);
+
+    Route::prefix('/{post}/comments')->group(function () {
+        Route::get('/', [CommentController::class, 'index']);
+    });
 });
