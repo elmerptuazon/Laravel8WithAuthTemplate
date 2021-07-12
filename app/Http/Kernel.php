@@ -4,8 +4,6 @@ namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\DecryptRequest;
-use App\Http\Middleware\PostOwnerOnly;
-use App\Http\Middleware\CommentOwner;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\EnsureFormData;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
@@ -93,7 +91,5 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
         'form-data' => EnsureFormData::class,
         'decrypt.request' => DecryptRequest::class,
-        'owner.only' => PostOwnerOnly::class,
-        'comment.owner' => CommentOwner::class,
     ];
 }

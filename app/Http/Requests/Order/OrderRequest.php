@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Comment;
+namespace App\Http\Requests\Order;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommentRequest extends FormRequest
+class OrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,11 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required'
+            'customer_code' => 'required',
+            'order_number' => 'required',
+            'gross_sales' => 'required|numeric',
+            'order_details' => 'required|array',
+            'is_cancelled' => 'required'
         ];
     }
 }

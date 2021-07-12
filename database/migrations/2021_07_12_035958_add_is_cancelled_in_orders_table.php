@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class AddIsCancelledInOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('title', 50);
-            $table->string('content', 150);
-            $table->string('author', 50);
-            $table->timestamps();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->tinyInteger('is_cancelled')->default(0);
         });
     }
 
@@ -29,6 +25,8 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::table('orders', function (Blueprint $table) {
+            //
+        });
     }
 }

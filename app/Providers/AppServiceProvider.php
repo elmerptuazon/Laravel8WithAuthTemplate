@@ -9,6 +9,8 @@ use App\Services\Encryption\IEncryptionService;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Responses\IResponseService;
 use App\Services\Responses\ResponseService;
+use App\Services\Order\OrderService;
+use App\Services\Order\IOrderService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IEncryptionService::class, EncryptionService::class);
         $this->app->bind(IAuthService::class, AuthService::class);
         $this->app->singleton(IResponseService::class, ResponseService::class);
+        $this->app->bind(IOrderService::class, OrderService::class);
     }
 
     /**

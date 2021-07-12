@@ -4,19 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\UsesUuid;
 
-class Post extends Model
+class Product extends Model
 {
-    use UsesUuid, HasFactory;
+    use HasFactory;
 
-    
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = "posts";
+    protected $table = "products";
 
     /**
      * The attributes that are mass assignable.
@@ -24,14 +22,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        "title",
-        "content",
-        "author",
-        "user_id",
+        "code",
+        "price",
     ];
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
 }
