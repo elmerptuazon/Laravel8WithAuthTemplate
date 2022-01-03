@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\App;
 Route::prefix('/clients')->middleware(['form-data'])->group(function (){
     Route::post('/token', [ClientController::class, 'getToken']);
 });
+Route::prefix('/auth')->group(function (){
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+});
 
 Route::middleware('auth:sanctum')->group(function (){
     Route::prefix('/payloads')->group(function() {
@@ -32,18 +36,5 @@ Route::middleware('auth:sanctum')->group(function (){
     //     Route::post('/login', [AuthController::class, 'login']);
     // });
 
-
-    Route::prefix('/order')->group(function () {
-        Route::post('/', [OrderController::class, 'store']);
-        Route::post('/{order_id}', [OrderController::class, 'update']);
-    });
-
-    Route::post('/search', [OrderController::class, 'search']);
+    // Route::post('/search', [OrderController::class, 'search']);
 });
-
-//public
-// Route::prefix('/order')->group(function () {
-//     Route::post('/', [OrderController::class, 'store']);
-//     // Route::get('/{order_id}', [OrderController::class, 'show']);
-
-// });
